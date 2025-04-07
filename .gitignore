@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Databases
+*.db
+*.sqlite
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
