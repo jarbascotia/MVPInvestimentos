@@ -47,7 +47,7 @@ const FormDolar = ({
   const handleLocalSubmit = async (e) => {
     e.preventDefault();
     
-    // Validação final antes de enviar
+ 
     const isValid = Object.keys(form).every(field => 
       validateField(field, form[field])
     );

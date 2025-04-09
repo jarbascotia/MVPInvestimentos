@@ -1,6 +1,6 @@
   export function formatCurrency(value) {
     if (value === null || value === undefined) {
-      return ''; // ou qualquer valor padrão que você queira retornar
+      return ''; 
     }
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }

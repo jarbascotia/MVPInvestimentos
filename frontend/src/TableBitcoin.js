@@ -15,7 +15,6 @@ const TableBitcoin = ({
     setExpandedId(prev => prev === id ? null : id);
   };
 
-  // Função segura para cálculos e formatação
   const safeCalculation = (investment) => {
     const valorCompra = parseFloat(investment?.valor_compra) || 0;
     const quantidade = parseFloat(investment?.quantidade) || 0;

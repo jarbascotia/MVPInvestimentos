@@ -16,7 +16,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import TotalCard from './TotalCard';
 
 function App() {
-  // Estados
+
   const [carteira, setCarteira] = useState([]);
   const [form, setForm] = useState({ ticker: '', data_compra: '', valor_compra: '', quantidade: '' });
   const [editId, setEditId] = useState(null);
@@ -34,7 +34,6 @@ function App() {
   
   const [filtro, setFiltro] = useState('Todos');
 
-  // Carregar dados iniciais
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -52,7 +51,6 @@ function App() {
     loadData();
   }, []);
 
-  // Funções de filtragem
   const filtrarCarteira = () => {
     if (filtro === 'Todos') return carteira;
     if (filtro === 'Ações') return carteira.filter(acao => !acao.ticker.endsWith('11'));
@@ -63,10 +61,8 @@ function App() {
   const filtrarDolar = () => (filtro === 'Todos' || filtro === 'Dólar') ? dolarInvestments : [];
   const filtrarBitcoin = () => (filtro === 'Todos' || filtro === 'Bitcoin') ? bitcoinInvestments : [];
 
-  // Funções auxiliares
   const calcularTotal = (data, key) => data.reduce((total, item) => total + (item[key] || 0), 0);
 
-  // Dados do gráfico
   const dataBarChart = [
     ...filtrarCarteira().map(acao => ({ 
       name: acao.ticker, 
@@ -82,7 +78,6 @@ function App() {
     }] : [])
   ];
 
-  // Handlers genéricos
   const handleChange = (e, setFormFunction) => {
     const { name, value } = e.target;
     setFormFunction(prev => ({ ...prev, [name]: value }));
@@ -135,7 +130,7 @@ function App() {
           case 'bitcoin':
             setBitcoinInvestments(updatedData);
             break;
-          default: // Adicione esta linha
+          default: 
             break;
         }
 
@@ -154,7 +149,6 @@ function App() {
     }
   };
 
-  // Handlers específicos
   const handleEditAcoes = (acao) => {
     setForm({
       ticker: acao.ticker,
@@ -186,7 +180,6 @@ function App() {
     setShowFormBitcoin(true);
   };
 
-  // Cálculos finais
   const totalAcoes = calcularTotal(filtrarCarteira(), 'valor_atualizado');
   const totalDolar = calcularTotal(filtrarDolar(), 'valor_atual');
   const totalBitcoin = calcularTotal(filtrarBitcoin(), 'valor_atual');

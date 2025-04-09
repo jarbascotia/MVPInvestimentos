@@ -5,9 +5,8 @@ import requests
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)  # Habilita CORS para todas as rotas
+CORS(app)  
 
-# Configurações do banco de dados
 DB_PATH = '/app/db/carteira.db'
 
 def init_db():
@@ -45,19 +44,16 @@ def add_acao():
     """Adiciona uma nova ação à carteira"""
     data = request.json
     try:
-        # Validação dos dados
         required_fields = ['ticker', 'data_compra', 'valor_compra', 'quantidade']
         for field in required_fields:
             if field not in data:
                 return jsonify({'error': f'Campo obrigatório faltando: {field}'}), 400
         
-        # Formatação dos dados
         ticker = data['ticker'].upper().strip()
         data_compra = datetime.strptime(data['data_compra'], '%Y-%m-%d').date()
         valor_compra = float(data['valor_compra'])
         quantidade = int(data['quantidade'])
 
-        # Inserção no banco
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute('''
@@ -80,19 +76,16 @@ def update_acao(id):
     """Atualiza uma ação existente"""
     data = request.json
     try:
-        # Validação dos dados
         required_fields = ['ticker', 'data_compra', 'valor_compra', 'quantidade']
         for field in required_fields:
             if field not in data:
                 return jsonify({'error': f'Campo obrigatório faltando: {field}'}), 400
 
-        # Formatação dos dados
         ticker = data['ticker'].upper().strip()
         data_compra = datetime.strptime(data['data_compra'], '%Y-%m-%d').date()
         valor_compra = float(data['valor_compra'])
         quantidade = int(data['quantidade'])
 
-        # Atualização no banco
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute('''

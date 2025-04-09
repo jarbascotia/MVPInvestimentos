@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Função da carteira de ações (mantida igual)
 export const fetchCarteira = async () => {
   try {
     const response = await axios.get('http://localhost:3003/api/carteira');
@@ -56,7 +55,6 @@ export const fetchCarteira = async () => {
   }
 };
 
-// Função para a carteira de dólar
 
 export const fetchDolar = async () => {
   try {
@@ -80,7 +78,7 @@ export const addDolar = async (data) => {
 export const fetchBitcoin = async () => {
   try {
     const response = await axios.get('http://localhost:3005/api/bitcoin');
-    return response.data; // Verifique se retorna array
+    return response.data; 
   } catch (error) {
     console.error('Erro ao buscar Bitcoin:', error);
     return [];

@@ -35,7 +35,6 @@ const FormBitcoin = ({
       }
     }
     
-    // Atualiza erros mantendo estado anterior e limpando erros corrigidos
     setLocalErrors(prev => ({ 
       ...prev, 
       ...errors,
@@ -54,7 +53,6 @@ const FormBitcoin = ({
   const handleLocalSubmit = async (e) => {
     e.preventDefault();
     
-    // Validação final de todos os campos
     const isValid = Object.keys(form).every(field => 
       validateField(field, form[field])
     );

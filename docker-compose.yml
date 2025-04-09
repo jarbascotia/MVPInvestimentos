@@ -7,7 +7,7 @@ services:
       - "3003:3003"
     volumes:
       - ./backend/acoes:/app
-      - ./db/acoes:/app/db  # Volume separado
+      - ./db/acoes:/app/db 
     environment:
       - FLASK_DEBUG=0
 
@@ -17,7 +17,7 @@ services:
       - "3004:3004"
     volumes:
       - ./backend/dolar:/app
-      - ./db/dolar:/app/db  # Volume separado
+      - ./db/dolar:/app/db 
     environment:
       - FLASK_DEBUG=0
 

@@ -9,17 +9,14 @@ export const handleChange = (e, form, setForm) => {
   };
   
   export const handleBlur = (e, form, setForm) => {
-    // Implementação da função handleBlur
   };
   
   export const handleSubmit = (e, form, setForm, editId, setEditId, fetchCarteira, setCarteira) => {
     e.preventDefault();
-    // Implementação da função handleSubmit
   };
   
   export const handleSubmitRendaFixa = (e, formRendaFixa, setFormRendaFixa, editIdRendaFixa, setEditIdRendaFixa, fetchRendaFixa, setRendaFixa) => {
     e.preventDefault();
-    // Implementação da função handleSubmitRendaFixa
   };
   
   export const handleEdit = (acao, setForm, setEditId) => {
@@ -34,9 +31,7 @@ export const handleChange = (e, form, setForm) => {
   };
   
   export const handleDelete = (id, fetchCarteira, setCarteira) => {
-    // Implementação da função handleDelete
   };
   
   export const handleDeleteRendaFixa = (id, fetchRendaFixa, setRendaFixa) => {
-    // Implementação da função handleDeleteRendaFixa
   };

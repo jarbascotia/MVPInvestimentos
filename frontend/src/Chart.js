@@ -2,13 +2,13 @@ import React from 'react';
 import { PieChart, Pie, Tooltip, Legend, Cell } from 'recharts';
 
 const COLORS = [
-  '#0088FE', '#00C49F', '#FFBB28', '#FF8042', // Cores para ações/FIIs
-  '#A28DD0', // Dólar
-  '#4B0082'  // Bitcoin
+  '#0088FE', '#00C49F', '#FFBB28', '#FF8042', 
+  '#A28DD0', 
+  '#4B0082'  
 ];
 
 const renderCustomizedLabel = ({ name, percent }) => {
-  // Traduzir símbolos para nomes completos
+
   const labels = {
     'USD': 'Dólar',
     'BTC': 'Bitcoin'
